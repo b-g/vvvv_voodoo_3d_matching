@@ -1,0 +1,301 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45debug27.2.dtd" >
+   <PATCH nodename="C:\Users\Joreg\Desktop\vvvvs\voodoo\voodoo_points.v4p" filename="C:\Users\bene\Dropbox\p7 film workshop\3d_matching\_voodoo\voodoo_camera.v4p" systemname="voodoo_camera">
+   <BOUNDS height="12210" left="9915" top="240" type="Window" width="12930">
+   </BOUNDS>
+   <NODE componentmode="Hidden" id="9" nodename="Reader (File)" systemname="Reader (File)">
+   <BOUNDS height="100" left="2580" top="2820" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Content" visible="1">
+   </PIN>
+   <PIN encoded="0" pinname="Filename" visible="1">
+   </PIN>
+   <PIN pinname="Read" visible="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="8" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="100" left="2880" top="3360" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="255" left="2880" top="3360" type="Box" width="3615">
+   </BOUNDS>
+   <PIN encoded="0" pinname="Input String" slicecount="1" values="|# X&tab;&tab;Y&tab;&tab;Z|">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="Hidden" id="7" nodename="Find (String)" systemname="Find (String)">
+   <BOUNDS height="100" left="2985" top="3840" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Intersperse">
+   </PIN>
+   <PIN pinname="Intersperse String" visible="1">
+   </PIN>
+   <PIN pinname="Substring" visible="1">
+   </PIN>
+   <PIN pinname="Position" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="7" dstpinname="Input" srcnodeid="9" srcpinname="Content">
+   </LINK>
+   <LINK dstnodeid="7" dstpinname="Substring" srcnodeid="8" srcpinname="Output String">
+   </LINK>
+   <NODE componentmode="Hidden" id="6" nodename="Split (String)" systemname="Split (String)">
+   <BOUNDS height="100" left="2580" top="4395" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Count" visible="1">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Character Encoding" slicecount="1" values="UTF8">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="6" dstpinname="Count" srcnodeid="7" srcpinname="Position">
+   </LINK>
+   <LINK dstnodeid="6" dstpinname="Input" srcnodeid="9" srcpinname="Content">
+   </LINK>
+   <NODE componentmode="Hidden" id="5" nodename="GetSlice (String)" systemname="GetSlice (String)">
+   <BOUNDS height="100" left="2385" top="5100" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Index" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="5" dstpinname="Input" srcnodeid="6" srcpinname="Output">
+   </LINK>
+   <NODE componentmode="InABox" id="4" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="100" left="1095" top="5715" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="1800" left="1095" top="5715" type="Box" width="4695">
+   </BOUNDS>
+   <PIN encoded="0" pinname="Input String" visible="1">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="4" dstpinname="Input String" srcnodeid="5" srcpinname="Output">
+   </LINK>
+   <NODE componentmode="Hidden" id="3" nodename="Separate (String)" systemname="Separate (String)">
+   <BOUNDS height="100" left="1110" top="8100" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Intersperse" slicecount="1" values="NewLineAutoDetection">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="Hidden" id="2" nodename="Clean (String)" systemname="Clean (String)">
+   <BOUNDS height="100" left="1110" top="7695" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="2" dstpinname="Input" srcnodeid="4" srcpinname="Output String">
+   </LINK>
+   <LINK dstnodeid="3" dstpinname="Input" srcnodeid="2" srcpinname="Output">
+   </LINK>
+   <NODE componentmode="Hidden" id="1" nodename="CAR (String)" systemname="CAR (String)">
+   <BOUNDS height="100" left="1110" top="8490" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Remainder" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="1" dstpinname="Input" srcnodeid="3" srcpinname="Output">
+   </LINK>
+   <NODE componentmode="Hidden" id="0" nodename="Separate (String)" systemname="Separate (String)">
+   <BOUNDS height="100" left="1590" top="9030" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Intersperse String" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="0" dstpinname="Input" srcnodeid="1" srcpinname="Remainder">
+   </LINK>
+   <NODE componentmode="InABox" id="13" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="0" left="2385" top="1455" type="Node" width="0">
+   </BOUNDS>
+   <BOUNDS height="330" left="2385" top="1455" type="Box" width="3330">
+   </BOUNDS>
+   <PIN encoded="0" pinname="Input String" slicecount="1" values="|C:\Users\bene\Dropbox\p7 film workshop\3d_matching\_voodoo\00091_3dmatching.txt|">
+   </PIN>
+   <PIN encoded="0" pinname="Default" slicecount="1" values="file.txt">
+   </PIN>
+   <PIN encoded="0" pinname="File Mask" slicecount="1" values="|All Text Formats (*.csv, *.dtd, *.html, *.txt, *.xml)||*.csv;*.dtd;*.html;*.htm;*.txt;*.xml||Text (*.txt)||*.txt||XML (*.xml)||*.xml||CSV (*.csv)||*.csv||DTD (*.dtd)||*.dtd||HTML (*.html, *.htm)||*.html;*.htm|">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="Filename">
+   </PIN>
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="|voodoo txt file|">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="12" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="0" left="6855" top="1425" type="Node" width="0">
+   </BOUNDS>
+   <BOUNDS height="480" left="6855" top="1425" type="Box" width="480">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN encoded="0" pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="|read file|">
+   </PIN>
+   </NODE>
+   <NODE componentmode="Hidden" id="11" nodename="OnOpen (VVVV)" systemname="OnOpen (VVVV)">
+   <BOUNDS height="100" left="7785" top="1665" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Bang" visible="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="Hidden" id="10" nodename="OR (Boolean)" systemname="OR (Boolean)">
+   <BOUNDS height="100" left="6930" top="2190" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="10" dstpinname="Input 1" srcnodeid="12" srcpinname="Y Output Value">
+   </LINK>
+   <LINK dstnodeid="10" dstpinname="Input 2" srcnodeid="11" srcpinname="Bang">
+   </LINK>
+   <LINK dstnodeid="9" dstpinname="Read" srcnodeid="10" srcpinname="Output">
+   </LINK>
+   <LINK dstnodeid="9" dstpinname="Filename" srcnodeid="13" srcpinname="Output String">
+   </LINK>
+   <NODE componentmode="Hidden" id="15" nodename="SpellValue (String)" systemname="SpellValue (String)">
+   <BOUNDS height="100" left="1965" top="8520" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Mode" slicecount="1" values="Ascii">
+   </PIN>
+   <PIN pinname="Input" slicecount="1" values="9">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="0" dstpinname="Intersperse String" srcnodeid="15" srcpinname="Output">
+   </LINK>
+   <NODE componentmode="Hidden" id="16" nodename="Vector (3d Split)" systemname="Vector (3d Split)">
+   <BOUNDS height="100" left="1305" top="10890" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="XYZ" visible="1">
+   </PIN>
+   <PIN pinname="X" visible="1">
+   </PIN>
+   <PIN pinname="Y" visible="1">
+   </PIN>
+   <PIN pinname="Z" visible="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="Hidden" id="17" nodename="AsValue (String)" systemname="AsValue (String)">
+   <BOUNDS height="100" left="1335" top="10065" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="17" dstpinname="Input" srcnodeid="0" srcpinname="Output">
+   </LINK>
+   <LINK dstnodeid="16" dstpinname="XYZ" srcnodeid="17" srcpinname="Output">
+   </LINK>
+   <NODE componentmode="InABox" id="18" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="1275" top="12600" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="240" left="1275" top="12600" type="Box" width="795">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="xyz">
+   </PIN>
+   </NODE>
+   <NODE componentmode="Hidden" id="19" nodename="Multiply (Value)" systemname="Multiply (Value)">
+   <BOUNDS height="100" left="1245" top="11385" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="19" dstpinname="Input 1" srcnodeid="16" srcpinname="X">
+   </LINK>
+   <NODE componentmode="Hidden" id="20" nodename="Vector (3d Join)" systemname="Vector (3d Join)">
+   <BOUNDS height="100" left="1275" top="11790" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="X" visible="1">
+   </PIN>
+   <PIN pinname="Y" visible="1">
+   </PIN>
+   <PIN pinname="Z" visible="1">
+   </PIN>
+   <PIN pinname="XYZ" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="20" dstpinname="X" srcnodeid="19" srcpinname="Output">
+   </LINK>
+   <LINK dstnodeid="20" dstpinname="Z" srcnodeid="16" srcpinname="Z">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="21" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="2910" top="8520" width="1680" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2910" top="8520" width="1680" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" encoded="0" values="|seperated by tab stop|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="16" srcpinname="Y" dstnodeid="20" dstpinname="Y">
+   </LINK>
+   <LINK srcnodeid="20" srcpinname="XYZ" dstnodeid="18" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="28" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="2040" top="11130" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2040" top="11130" width="390" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||" encoded="0">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="28" srcpinname="Y Output Value" dstnodeid="19" dstpinname="Input 2">
+   </LINK>
+   </PATCH>
